@@ -2,7 +2,7 @@
 * @Author: roverzon
 * @Date:   2015-04-16 10:46:34
 * @Last Modified by:   roverzon
-* @Last Modified time: 2015-04-16 11:09:56
+* @Last Modified time: 2015-04-17 15:10:15
 */
 
 var Post = require('../../models/post')
@@ -23,6 +23,8 @@ router.post('/',function(req,res,next){
 		username:req.body.username,
 		body:req.body.body
 	})
+
+	post.username = req.auth.username
 
 	post.save(function(err,post){
 		if (err) {return next(err)}
